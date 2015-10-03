@@ -12,7 +12,6 @@ public class Main {
 		boardGUI bg = new boardGUI(b);
 		gameGUI gmg=new gameGUI(bg);
 		gmg.init();
-		//System.out.println("teste github");
-		System.out.println("Ve la se da");
+		
 	}
 }
