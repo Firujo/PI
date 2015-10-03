@@ -2,6 +2,10 @@ package pt.iscte.lei.pi.firujo.scores;
 
 import java.io.Serializable;
 
+/*
+* 	objecto score, contem um nome string e resultado int
+*	serializable para se poder gravar o estado do objecto em ficheiro 
+*/
 public class Score implements Serializable{
 	
 	/**
