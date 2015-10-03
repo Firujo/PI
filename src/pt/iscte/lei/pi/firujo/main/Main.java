@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String[] args){
 		System.out.println("trololololol");
-		board b=new board(30,30);
+		board b=new board(300,300);
 		boardGUI bg = new boardGUI(b);
 		gameGUI gmg=new gameGUI(bg);
 		gmg.init();

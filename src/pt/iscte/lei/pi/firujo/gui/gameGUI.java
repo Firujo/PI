@@ -8,6 +8,8 @@ import java.awt.Component;
 
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -21,20 +23,42 @@ public class gameGUI extends JComponent{
 	//para desenhar a janela geral.
 	private boardGUI board;
 	
-	private JPanel painelDoTabuleiro = new JPanel();
-	private JPanel painelDasInformacoes = new JPanel();
-	private JPanel painelDoTimer = new JPanel();
-	private JPanel painelDosPontos = new JPanel();
-	private JPanel painelDaVida = new JPanel();
+	private JPanel boardPanel = new JPanel();
+	private JPanel informationPanel = new JPanel();
+	private JPanel myInfoPanel = new JPanel();
+	private JPanel topScoresPanel = new JPanel();
 	
-	private JFrame frame= new JFrame("The Hunter");
+	private JFrame frame= new JFrame("Pest Control");
 
 	public gameGUI( boardGUI b) {
 		super();
 		this.board = b;
 		gui();
+		b.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				//este e melhor que o clicked
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+			
+		});
 		
-//		frame.getContentPane().add(board); //com isto desenha, so com o panelTabul.add(board) nao
 	}
 	
 	public void init(){
@@ -52,28 +76,31 @@ public class gameGUI extends JComponent{
 		frame.setVisible(false);
 		
 		
-		frame.add(painelDoTabuleiro, BorderLayout.CENTER);
-		painelDoTabuleiro.setLayout(new BorderLayout()); //Se nao metesse isto, ele nao ia desenhar
-		painelDoTabuleiro.add(board);
-		frame.add(painelDasInformacoes, BorderLayout.SOUTH);
+		frame.add(boardPanel, BorderLayout.CENTER);
+		boardPanel.setLayout(new BorderLayout()); //Se nao metesse isto, ele nao ia desenhar nada
+		//pq por definicao tem um flow que reduz o tamanho e nao mostraria nada
 		
-//		painelDoTabuleiro.setBackground(Color.green);
-//		painelDasInformacoes.setBackground(Color.GRAY);
+		boardPanel.add(board);
+		frame.add(informationPanel, BorderLayout.SOUTH);
 		
-		painelDasInformacoes.setLayout(new GridLayout(1,3));
-		painelDasInformacoes.add(painelDoTimer);
-		painelDasInformacoes.add(painelDosPontos);
-		painelDasInformacoes.add(painelDaVida);
+		boardPanel.setBackground(Color.BLACK);
+		informationPanel.setBackground(Color.GRAY);
 		
-		//teste - adicionei estes buttons so para testar se tava no sitio certo
-		//dps tiram-se estes butoes e mete-se as info certas.
+		informationPanel.setLayout(new GridLayout(1,2));
+		informationPanel.add(myInfoPanel);
+		informationPanel.add(topScoresPanel);
+
 		// - TAL como se fez a boardGUI, podera ser necessario criar uma classe para 
 		//trabalhar estas partes de baixo, ou entao como sao menos relevantes faz-se directamente aqui
 		//discutir este ponto.-
 		
-		painelDoTimer.add(new JButton("Sou o tempo"));
-		painelDosPontos.add(new JButton ("Sou pontos"));
-		painelDaVida.add(new JButton ("Sou a vida"));
+		myInfoPanel.setLayout(new GridLayout(3,1));
+		myInfoPanel.add(new JButton("Teste: Health Points"));
+		myInfoPanel.add(new JButton("Teste: Points"));
+		myInfoPanel.add(new JButton("Teste: time"));
+		
+		//Inserir no topScoresPanel as cenas do top scores.
+		
 	
 	}
 
