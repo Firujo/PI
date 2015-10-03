@@ -52,6 +52,8 @@ public class gameGUI extends JComponent{
 				//este e melhor que o clicked
 				//TODO
 				//teste git commit Filipe testing this thing.
+				
+
 			}
 
 			@Override
