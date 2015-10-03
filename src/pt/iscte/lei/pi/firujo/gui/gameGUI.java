@@ -51,6 +51,8 @@ public class gameGUI extends JComponent{
 			public void mousePressed(MouseEvent e) {
 				//este e melhor que o clicked
 				//TODO
+				
+				//teste git commit "o que quiseres"
 			}
 
 			@Override
