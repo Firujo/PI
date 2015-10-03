@@ -47,6 +47,7 @@ public class HighScoreManager {
 	/*
 	*	Lê o ficheiro scores.dat e carrega a lista no array de scores
 	*/ 
+	@SuppressWarnings("unchecked")
 	private void loadScoreFile() {
 		try {
 			ois = new ObjectInputStream(new FileInputStream(HIGHSCORE_FILE));
