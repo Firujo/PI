@@ -3,11 +3,10 @@ package pt.iscte.lei.pi.firujo.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-
-
-
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -51,6 +50,7 @@ public class gameGUI extends JComponent{
 			@Override
 			public void mousePressed(MouseEvent e) {
 				//este e melhor que o clicked
+				//TODO
 			}
 
 			@Override
