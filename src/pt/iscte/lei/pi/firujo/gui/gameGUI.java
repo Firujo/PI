@@ -68,6 +68,9 @@ public class gameGUI extends JComponent{
 	public void gui(){
 		frame.setLayout(new BorderLayout());//layout geral
 		frame.setSize(500, 550);
+		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+		frame.setLocation(dimension.width / 2 - frame.getWidth() / 2,
+				dimension.height / 2 - frame.getHeight() / 2);
 		frame.setLocation(200, 100);
 		frame.requestFocusInWindow();
 		frame.setFocusable(true);
