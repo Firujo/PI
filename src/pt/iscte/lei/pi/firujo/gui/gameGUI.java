@@ -21,6 +21,7 @@ import pt.iscte.lei.pi.firujo.gui.boardGUI;
 public class gameGUI extends JComponent{
 	//para desenhar a janela geral.
 	private boardGUI board;
+	private Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	private JPanel boardPanel = new JPanel();
 	private JPanel informationPanel = new JPanel();
@@ -66,11 +67,9 @@ public class gameGUI extends JComponent{
 	
 	public void gui(){
 		frame.setLayout(new BorderLayout());//layout geral
-		frame.setSize(500, 550);
-		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+		frame.setSize(800, 600);
 		frame.setLocation(dimension.width / 2 - frame.getWidth() / 2,
 				dimension.height / 2 - frame.getHeight() / 2);
-		frame.setLocation(200, 100);
 		frame.requestFocusInWindow();
 		frame.setFocusable(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
