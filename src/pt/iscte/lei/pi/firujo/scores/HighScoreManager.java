@@ -18,8 +18,8 @@ public class HighScoreManager {
 	// ficheiro onde vamos guardar scores - é .dat para ninguem modificar e dar banhada nos resultados :D
 	private static final String HIGHSCORE_FILE = "highscores.dat";
 
-	ObjectOutputStream oos = null;
-	ObjectInputStream ois = null;
+	private ObjectOutputStream oos = null;
+	private ObjectInputStream ois = null;
 
 	public HighScoreManager() {
 		//se ainda nao existir o ficheiro (1o carregamento) ele cria
