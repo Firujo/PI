@@ -106,17 +106,28 @@ public class gameGUI extends JComponent{
 		
 		//Inserir no topScoresPanel as cenas do top scores.
 		HighScoreManager highsm = new HighScoreManager();
-		topScoresPanel.setLayout(new GridLayout(4,1));
-		JLabel hsmTitleLabel= new JLabel(" Top High Scores");
-		topScoresPanel.add(hsmTitleLabel);
+		topScoresPanel.setLayout(new BorderLayout());
 		
+		JPanel centeredPanel=new JPanel();
+		topScoresPanel.add(new JLabel("                                      "), BorderLayout.WEST);
+		topScoresPanel.add(centeredPanel, BorderLayout.CENTER);
+		
+		centeredPanel.setLayout(new GridLayout(4,1));
+		JLabel hsmTitleLabel= new JLabel(" Top High Scores");
 		ArrayList<Score> aux= highsm.getScores();
 		JLabel firstPlace = new JLabel(aux.get(0).toString());
 		JLabel secondPlace=new JLabel(aux.get(1).toString());
 		JLabel thirdPlace=new JLabel(aux.get(2).toString());
-		topScoresPanel.add(firstPlace);
-		topScoresPanel.add(secondPlace);
-		topScoresPanel.add(thirdPlace);
+		
+		centeredPanel.add(hsmTitleLabel);
+		centeredPanel.add(firstPlace);
+		centeredPanel.add(secondPlace);
+		centeredPanel.add(thirdPlace);
+		
+		//explicacao a apagar: Tive de usar o centerPanel pq se usasse so o topscoresPanel em grid
+		//ficava tudo mt a esquerda, assim e com a aldrabice da Label so com espaço no west ele ja estica.
+		//isto foi aldrabado, mas se nao metesse essa label a esquerda, o center esticava e ocupava td
+
 		
 	}
 
