@@ -13,9 +13,12 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import pt.iscte.lei.pi.firujo.gui.boardGUI;
+import pt.iscte.lei.pi.firujo.scores.HighScoreManager;
+import pt.iscte.lei.pi.firujo.scores.Score;
 
 
 public class gameGUI extends JComponent{
@@ -101,7 +104,12 @@ public class gameGUI extends JComponent{
 		myInfoPanel.add(new JButton("Teste: time"));
 		
 		//Inserir no topScoresPanel as cenas do top scores.
-		
+		topScoresPanel.setLayout(new BorderLayout());
+		HighScoreManager highsm = new HighScoreManager();
+		JLabel hsmTitleLabel= new JLabel(" Top High Scores");
+		JLabel hsmLabel = new JLabel(highsm.toString());
+		topScoresPanel.add(hsmTitleLabel, BorderLayout.NORTH);
+		topScoresPanel.add(hsmLabel, BorderLayout.CENTER);
 	
 	}
 
