@@ -28,4 +28,11 @@ public class Score implements Serializable{
 		return this.name;
 	}
 
+	@Override
+	public String toString() {
+		return ""+ name + "-" + score;
+	}
+	
+	
+
 }

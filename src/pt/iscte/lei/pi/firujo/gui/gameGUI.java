@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -104,13 +105,19 @@ public class gameGUI extends JComponent{
 		myInfoPanel.add(new JButton("Teste: time"));
 		
 		//Inserir no topScoresPanel as cenas do top scores.
-		topScoresPanel.setLayout(new BorderLayout());
 		HighScoreManager highsm = new HighScoreManager();
+		topScoresPanel.setLayout(new GridLayout(4,1));
 		JLabel hsmTitleLabel= new JLabel(" Top High Scores");
-		JLabel hsmLabel = new JLabel(highsm.toString());
-		topScoresPanel.add(hsmTitleLabel, BorderLayout.NORTH);
-		topScoresPanel.add(hsmLabel, BorderLayout.CENTER);
-	
+		topScoresPanel.add(hsmTitleLabel);
+		
+		ArrayList<Score> aux= highsm.getScores();
+		JLabel firstPlace = new JLabel(aux.get(0).toString());
+		JLabel secondPlace=new JLabel(aux.get(1).toString());
+		JLabel thirdPlace=new JLabel(aux.get(2).toString());
+		topScoresPanel.add(firstPlace);
+		topScoresPanel.add(secondPlace);
+		topScoresPanel.add(thirdPlace);
+		
 	}
 
 }
