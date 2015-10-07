@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class GaussianRandomVariable {
 
+	private ArrayList<Double> grvResults = new ArrayList<Double>();
 	private double mean;
 	private double standardDeviation;
 
@@ -18,7 +19,7 @@ public class GaussianRandomVariable {
 
 		double rv = standardDeviation * Math.sqrt(-2 * Math.log(U1.nextDouble()))
 				* Math.cos(2 * Math.PI * U2.nextDouble()) + mean;
-
+		grvResults.add(rv);
 		return rv;
 	}
 
