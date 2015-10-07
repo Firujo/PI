@@ -1,5 +1,6 @@
 package pt.iscte.lei.pi.firujo.utils;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class GaussianRandomVariable {
