@@ -67,6 +67,10 @@ public class gameGUI extends JComponent{
 	
 	public void init(){
 		frame.setVisible(true);
+		for (int i = 0; i < 9; i++){
+			
+		}
+		
 	}
 	
 	public void gui(){
@@ -88,7 +92,7 @@ public class gameGUI extends JComponent{
 		boardPanel.add(board);
 		frame.add(informationPanel, BorderLayout.SOUTH);
 		
-		boardPanel.setBackground(Color.BLACK);
+		boardPanel.setBackground(Color.WHITE);
 		informationPanel.setBackground(Color.GRAY);
 		
 		informationPanel.setLayout(new GridLayout(1,2));
@@ -115,9 +119,14 @@ public class gameGUI extends JComponent{
 		centeredPanel.setLayout(new GridLayout(4,1));
 		JLabel hsmTitleLabel= new JLabel(" Top High Scores");
 		ArrayList<Score> aux= highsm.getScores();
+		JLabel firstPlace = new JLabel("A - 3");
+		JLabel secondPlace=new JLabel("B - 2");
+		JLabel thirdPlace=new JLabel("C - 1");
+		/*
 		JLabel firstPlace = new JLabel(aux.get(0).toString());
 		JLabel secondPlace=new JLabel(aux.get(1).toString());
 		JLabel thirdPlace=new JLabel(aux.get(2).toString());
+		*/
 		
 		centeredPanel.add(hsmTitleLabel);
 		centeredPanel.add(firstPlace);
