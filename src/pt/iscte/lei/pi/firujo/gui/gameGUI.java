@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import pt.iscte.lei.pi.firujo.game.GameThread;
 import pt.iscte.lei.pi.firujo.gui.boardGUI;
 import pt.iscte.lei.pi.firujo.scores.HighScoreManager;
 import pt.iscte.lei.pi.firujo.scores.Score;
@@ -38,10 +39,14 @@ public class gameGUI extends JComponent{
 		super();
 		this.board = b;
 		gui();
+		
+		gameThreadStarter();
+		
 		b.addMouseListener(new MouseListener(){
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				System.out.println(arg0.getPoint());
 			}
 
 			@Override
@@ -63,6 +68,12 @@ public class gameGUI extends JComponent{
 			
 		});
 		
+	}
+
+	private void gameThreadStarter() {
+		GameThread gameThread = new GameThread();
+		Thread thread = new Thread(gameThread);
+		thread.start();
 	}
 	
 	public void init(){
@@ -134,7 +145,7 @@ public class gameGUI extends JComponent{
 		centeredPanel.add(thirdPlace);
 		
 		//explicacao a apagar: Tive de usar o centerPanel pq se usasse so o topscoresPanel em grid
-		//ficava tudo mt a esquerda, assim e com a aldrabice da Label so com espaço no west ele ja estica.
+		//ficava tudo mt a esquerda, assim e com a aldrabice da Label so com espaï¿½o no west ele ja estica.
 		//isto foi aldrabado, mas se nao metesse essa label a esquerda, o center esticava e ocupava td
 
 		
