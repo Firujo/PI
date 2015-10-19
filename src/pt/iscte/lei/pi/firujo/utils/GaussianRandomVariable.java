@@ -28,9 +28,15 @@ public class GaussianRandomVariable {
 	public int getY(int quadrant){
 		Integer y;
 		int lvlMean = ((height / 2) //altura do ecran de jogo a dividir por 2 para ter o valor de altura de um quadrante
+<<<<<<< HEAD
 					  / 4)  //altura de um quadrante a dividir por 4 de modo a ter 3 linhas de orientaÃ§Ã£o para media
 					  * (4 - level); //escolha da linha de orientaÃ§ao da media 
 									 //(4 - lvl para que a orientaÃ§Ã£o seja feita do centro para a extremidade do campo) 
+=======
+					  / 4)  //altura de um quadrante a dividir por 4 de modo a ter 3 linhas de orientação para media
+					  * (4 - level); //escolha da linha de orientaçao da media 
+									 //(4 - lvl para que a orientação seja feita do centro para a extremidade do campo) 
+>>>>>>> 342b7bffb800383f67e0438670623f562cdee7da
 					  
 		int lvlDeviation = 0;
 		if (level == 2) {
