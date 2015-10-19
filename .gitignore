@@ -1,5 +1,3 @@
 # este ficheiro e para o git ignorar files, tipo o highscores
 
 /highscores.dat
-/.classpath
-/.project
