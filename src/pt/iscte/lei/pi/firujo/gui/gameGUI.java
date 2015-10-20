@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import pt.iscte.lei.pi.firujo.game.Board;
 import pt.iscte.lei.pi.firujo.game.GameThread;
 import pt.iscte.lei.pi.firujo.game.MouseGameListener;
 import pt.iscte.lei.pi.firujo.gui.boardGUI;
@@ -23,6 +24,8 @@ import pt.iscte.lei.pi.firujo.scores.Score;
 public class gameGUI extends JComponent {
 	// para desenhar a janela geral.
 	private boardGUI board;
+	private MouseGameListener msl;
+	
 	private Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 
 	private JPanel boardPanel = new JPanel();
@@ -39,13 +42,15 @@ public class gameGUI extends JComponent {
 
 		gameThreadStarter();
 
-		MouseListener msl = new MouseGameListener();
+		msl = new MouseGameListener();
+		msl.addObserver(board);
 		b.addMouseListener(msl);
 
 	}
 
 	private void gameThreadStarter() {
 		GameThread gameThread = new GameThread();
+		gameThread.addObserver(board);
 		Thread thread = new Thread(gameThread);
 		thread.start();
 	}

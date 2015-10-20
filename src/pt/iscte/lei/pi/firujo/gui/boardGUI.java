@@ -1,6 +1,7 @@
 package pt.iscte.lei.pi.firujo.gui;
 
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.Observable;
@@ -8,6 +9,8 @@ import java.util.Observer;
 
 import javax.swing.JComponent;
 
+import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
+import pt.iscte.lei.pi.firujo.game.Board;
 import pt.iscte.lei.pi.firujo.game.board;
 import pt.iscte.lei.pi.firujo.utils.GaussianRandomVariable;
 
@@ -27,7 +30,12 @@ public class boardGUI extends JComponent implements Observer{
 	}
 	
 	public void drawRats(Graphics g){
-		//desenhar os ratos
+		for (Rat rat : Board.getInstance().getMyRats()) {
+			g.setColor(Color.RED);
+			g.fillOval((int)rat.getSpawnPoint().getX(), (int)rat.getSpawnPoint().getY(), 50, 50);
+			g.setColor(Color.BLACK);
+		}
+		
 	}
 	
 	public void drawMosquitos(Graphics g){
@@ -41,7 +49,6 @@ public class boardGUI extends JComponent implements Observer{
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-
 		//alguem que faca classes de teste para este codigo, isto fica para o fim - que é as variaveis
 //		GaussianRandomVariable gr = new GaussianRandomVariable();
 //		gr.setParameters(getWidth(), getHeight());
