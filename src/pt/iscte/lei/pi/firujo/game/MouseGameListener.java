@@ -4,7 +4,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Observable;
 
+import pt.iscte.lei.pi.firujo.bughierarchy.Mosquito;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
+import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
 
 public class MouseGameListener extends Observable implements MouseListener {
 
@@ -16,7 +18,7 @@ public class MouseGameListener extends Observable implements MouseListener {
 
 	}
 
-	private void checkIfHitAndRemove(MouseEvent e) {
+	private void checkIfHitAndRemove(final MouseEvent e) {
 
 		/*
 		 * precisa de MUITA optimizacao aqui + limpar codigo
@@ -28,15 +30,59 @@ public class MouseGameListener extends Observable implements MouseListener {
 		 * 
 		 * 
 		 */
-		for (Rat rat : Board.getInstance().getMyRats()) {
-			if (e.getX() - rat.getSpawnPoint().getX()-25 < 25 && e.getY() - rat.getSpawnPoint().getY()-25 < 25
-					&& e.getX() - rat.getSpawnPoint().getX()-25 > -25 && e.getY() - rat.getSpawnPoint().getY()-25 > -25) {
-				Board.getInstance().getMyRats().remove(rat);
-				setChanged();
-				notifyObservers();
-				break;
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				for (Rat rat : Board.getInstance().getMyRats()) {
+					if (e.getX() - rat.getSpawnPoint().getX() - 25 < 25
+							&& e.getY() - rat.getSpawnPoint().getY() - 25 < 25
+							&& e.getX() - rat.getSpawnPoint().getX() - 25 > -25
+							&& e.getY() - rat.getSpawnPoint().getY() - 25 > -25) {
+						Board.getInstance().getMyRats().remove(rat);
+						setChanged();
+						notifyObservers();
+						break;
+					}
+				}
 			}
-		}
+		}).start();
+
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				for (Roach roach : Board.getInstance().getMyRoaches()) {
+					if (e.getX() - roach.getSpawnPoint().getX() - 25 < 25
+							&& e.getY() - roach.getSpawnPoint().getY() - 25 < 25
+							&& e.getX() - roach.getSpawnPoint().getX() - 25 > -25
+							&& e.getY() - roach.getSpawnPoint().getY() - 25 > -25) {
+						Board.getInstance().getMyRoaches().remove(roach);
+						setChanged();
+						notifyObservers();
+						break;
+					}
+				}
+			}
+		}).start();
+
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				for (Mosquito mosquito : Board.getInstance().getMyMosquitos()) {
+					if (e.getX() - mosquito.getSpawnPoint().getX() - 25 < 25
+							&& e.getY() - mosquito.getSpawnPoint().getY() - 25 < 25
+							&& e.getX() - mosquito.getSpawnPoint().getX() - 25 > -25
+							&& e.getY() - mosquito.getSpawnPoint().getY() - 25 > -25) {
+						Board.getInstance().getMyMosquitos().remove(mosquito);
+						setChanged();
+						notifyObservers();
+						break;
+					}
+				}
+			}
+		}).start();
 	}
 
 	@Override

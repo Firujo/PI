@@ -5,7 +5,10 @@ import java.util.concurrent.TimeUnit;
 
 import javax.swing.plaf.SliderUI;
 
+import pt.iscte.lei.pi.firujo.bughierarchy.Mosquito;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
+import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
+import pt.iscte.lei.pi.firujo.utils.DiscreteRandomVariable;
 
 public class GameThread extends Observable implements Runnable {
 	private long last;
@@ -34,8 +37,27 @@ public class GameThread extends Observable implements Runnable {
 	}
 
 	private void spawnBug() {
-		Rat rat = new Rat();
-		Board.getInstance().addARat(rat);
+		
+		DiscreteRandomVariable drv = new DiscreteRandomVariable(0, 2);
+		
+		switch (drv.generateRV()) {
+		case 0:
+			Rat rat = new Rat();
+			Board.getInstance().addARat(rat);
+			break;
+		case 1:
+			Mosquito mosquito = new Mosquito();
+			Board.getInstance().addAMosquito(mosquito);
+			break;
+		case 2:		
+			Roach roach = new Roach();
+			Board.getInstance().addARoach(roach);
+			break;
+		default:
+			System.out.println("DiscreveRandomVariable is wrong!");
+			break;
+		}
+		
 	}
 
 }

@@ -9,7 +9,9 @@ import java.util.Observer;
 
 import javax.swing.JComponent;
 
+import pt.iscte.lei.pi.firujo.bughierarchy.Mosquito;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
+import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
 import pt.iscte.lei.pi.firujo.game.Board;
 import pt.iscte.lei.pi.firujo.game.board;
 import pt.iscte.lei.pi.firujo.utils.GaussianRandomVariable;
@@ -39,11 +41,19 @@ public class boardGUI extends JComponent implements Observer{
 	}
 	
 	public void drawMosquitos(Graphics g){
-		//desenhar os mosquitos
+		for (Mosquito mosquito : Board.getInstance().getMyMosquitos()) {
+			g.setColor(Color.GREEN);
+			g.fillOval((int)mosquito.getSpawnPoint().getX(), (int)mosquito.getSpawnPoint().getY(), 50, 50);
+			g.setColor(Color.BLACK);
+		}
 	}
 	
 	public void drawCockroaches(Graphics g){
-		//desenhar as baratas
+		for (Roach roach: Board.getInstance().getMyRoaches()) {
+			g.setColor(Color.BLUE);
+			g.fillOval((int)roach.getSpawnPoint().getX(), (int)roach.getSpawnPoint().getY(), 50, 50);
+			g.setColor(Color.BLACK);
+		}
 	}
 	
 	@Override
