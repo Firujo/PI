@@ -1,0 +1,21 @@
+##### Ver se o user carregou dentro do circulo #####
+
+A circle, is the geometric position of all the points whose distance from a central point is equal to some number "R".
+
+You want to find the points whose distance is less than or equal to that "R", our radius.
+
+The distance equation in 2d euclidean space is d(p1,p2) = root((p1.x-p2.x)^2 + (p1.y-p2.y)^2).
+
+Check if the distance between your p and the center of the circle is less than the radius.
+
+Let's say I have a circle with radius r and center at position (x0,y0) and a point (x1,y1) and I want to check if that point is in the circle or not.
+
+I'd need to check if d((x0,y0),(x1,y1)) < r which translates to:
+
+Math.sqrt((x1-x0)*(x1-x0) + (y1-y0)*(y1-y0)) < r
+
+In JavaScript.
+
+Now you know all these values (x0,y0) being bubble.x and bubble.y and (x1,y1) being x and y.
+
+######################################################
