@@ -31,7 +31,6 @@ public class MouseGameListener extends Observable implements MouseListener {
 		for (Rat rat : Board.getInstance().getMyRats()) {
 			if (e.getX() - rat.getSpawnPoint().getX()-25 < 25 && e.getY() - rat.getSpawnPoint().getY()-25 < 25
 					&& e.getX() - rat.getSpawnPoint().getX()-25 > -25 && e.getY() - rat.getSpawnPoint().getY()-25 > -25) {
-				System.out.println("teste");
 				Board.getInstance().getMyRats().remove(rat);
 				setChanged();
 				notifyObservers();
