@@ -5,7 +5,7 @@ import java.util.List;
 
 import pt.iscte.lei.pi.firujo.bughierarchy.*;
 
-public class board {
+public class BoardPhilips {
 
 	// aqui tera as informacoes todas do tabuleiro
 
@@ -18,7 +18,7 @@ public class board {
 	public int x;
 	public int y;
 
-	public board(int x, int y) {
+	public BoardPhilips(int x, int y) {
 		super();
 		this.x = x;
 		this.y = y;

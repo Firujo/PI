@@ -13,17 +13,17 @@ import pt.iscte.lei.pi.firujo.bughierarchy.Mosquito;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
 import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
 import pt.iscte.lei.pi.firujo.game.Board;
-import pt.iscte.lei.pi.firujo.game.board;
+import pt.iscte.lei.pi.firujo.game.BoardPhilips;
 import pt.iscte.lei.pi.firujo.utils.GaussianRandomVariable;
 
 public class boardGUI extends JComponent implements Observer{
 	//para desenhar o tabuleiro e cenas no tabuleiro. (por os bonecos etc)
 	
-	private board b;
+	private BoardPhilips b;
 	private int x;
 	private int y;
 	
-	public boardGUI(board board) {
+	public boardGUI(BoardPhilips board) {
 		super();
 		this.b = board;
 		this.x=board.x;
