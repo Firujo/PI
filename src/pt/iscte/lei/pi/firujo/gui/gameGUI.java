@@ -57,10 +57,6 @@ public class gameGUI extends JComponent {
 
 	public void init() {
 		frame.setVisible(true);
-		for (int i = 0; i < 9; i++) {
-
-		}
-
 	}
 
 	public void gui() {
