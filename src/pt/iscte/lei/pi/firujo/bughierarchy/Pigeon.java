@@ -4,10 +4,10 @@ import java.awt.Point;
 
 import pt.iscte.lei.pi.firujo.utils.DiscreteRandomVariable;
 
-public class Mosquito extends Animal{
+public class Pigeon extends Animal{
 	
 	
-	public Mosquito(){
+	public Pigeon(){
 		
 	}
 
