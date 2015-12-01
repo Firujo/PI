@@ -4,7 +4,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Observable;
 
-import pt.iscte.lei.pi.firujo.bughierarchy.Mosquito;
+
+import pt.iscte.lei.pi.firujo.bughierarchy.Pigeon;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
 import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
 
@@ -70,12 +71,12 @@ public class MouseGameListener extends Observable implements MouseListener {
 
 			@Override
 			public void run() {
-				for (Mosquito mosquito : Board.getInstance().getMyMosquitos()) {
-					if (e.getX() - mosquito.getSpawnPoint().getX() - 25 < 25
-							&& e.getY() - mosquito.getSpawnPoint().getY() - 25 < 25
-							&& e.getX() - mosquito.getSpawnPoint().getX() - 25 > -25
-							&& e.getY() - mosquito.getSpawnPoint().getY() - 25 > -25) {
-						Board.getInstance().getMyMosquitos().remove(mosquito);
+				for (Pigeon pigeon : Board.getInstance().getMyPigeons()) {
+					if (e.getX() - pigeon.getSpawnPoint().getX() - 25 < 25
+							&& e.getY() - pigeon.getSpawnPoint().getY() - 25 < 25
+							&& e.getX() - pigeon.getSpawnPoint().getX() - 25 > -25
+							&& e.getY() - pigeon.getSpawnPoint().getY() - 25 > -25) {
+						Board.getInstance().getMyPigeons().remove(pigeon);
 						setChanged();
 						notifyObservers();
 						break;

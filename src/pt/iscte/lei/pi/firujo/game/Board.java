@@ -3,7 +3,8 @@ package pt.iscte.lei.pi.firujo.game;
 import java.util.ArrayList;
 import java.util.List;
 
-import pt.iscte.lei.pi.firujo.bughierarchy.Mosquito;
+
+import pt.iscte.lei.pi.firujo.bughierarchy.Pigeon;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
 import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
 
@@ -17,7 +18,7 @@ public class Board {
 
 	private List<Rat> myRats = new ArrayList<Rat>();
 	private List<Roach> myRoaches = new ArrayList<Roach>();
-	private List<Mosquito> myMosquitos = new ArrayList<Mosquito>();
+	private List<Pigeon> myPigeons = new ArrayList<Pigeon>();
 
 	public List<Rat> getMyRats() {
 		return myRats;
@@ -43,15 +44,15 @@ public class Board {
 		myRoaches.add(roach);
 	}
 
-	public List<Mosquito> getMyMosquitos() {
-		return myMosquitos;
+	public List<Pigeon> getMyPigeons() {
+		return myPigeons;
 	}
 
-	public void setMyMosquitos(List<Mosquito> myMosquitos) {
-		this.myMosquitos = myMosquitos;
+	public void setMyPigeons(List<Pigeon> myPigeons) {
+		this.myPigeons = myPigeons;
 	}
 
-	public void addAMosquito(Mosquito mosquito) {
-		myMosquitos.add(mosquito);
+	public void addAPigeon(Pigeon pigeon) {
+		myPigeons.add(pigeon);
 	}
 }

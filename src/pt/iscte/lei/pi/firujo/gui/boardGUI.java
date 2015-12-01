@@ -12,7 +12,7 @@ import java.util.Observer;
 
 import javax.swing.JComponent;
 
-import pt.iscte.lei.pi.firujo.bughierarchy.Mosquito;
+import pt.iscte.lei.pi.firujo.bughierarchy.Pigeon;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
 import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
 import pt.iscte.lei.pi.firujo.game.Board;
@@ -44,10 +44,10 @@ public class boardGUI extends JComponent implements Observer{
 		
 	}
 	
-	public void drawMosquitos(Graphics g){
-		for (Mosquito mosquito : Board.getInstance().getMyMosquitos()) {
+	public void drawPigeons(Graphics g){
+		for (Pigeon pigeon : Board.getInstance().getMyPigeons()) {
 			Image img = Toolkit.getDefaultToolkit().getImage("images" + File.separator + "pigeon-sf.png");
-			g.drawImage(img, (int)mosquito.getSpawnPoint().getX(), (int)mosquito.getSpawnPoint().getY(), 50, 50, null);
+			g.drawImage(img, (int)pigeon.getSpawnPoint().getX(), (int)pigeon.getSpawnPoint().getY(), 50, 50, null);
 			//g.setColor(Color.GREEN);
 			//g.fillOval((int)mosquito.getSpawnPoint().getX(), (int)mosquito.getSpawnPoint().getY(), 50, 50);
 			//g.setColor(Color.BLACK);
@@ -105,7 +105,7 @@ public class boardGUI extends JComponent implements Observer{
 		
 		//g.drawOval(0, 0, 10, 10);
 		drawRats(g);
-		drawMosquitos(g);
+		drawPigeons(g);
 		drawCockroaches(g);
 	}
 	

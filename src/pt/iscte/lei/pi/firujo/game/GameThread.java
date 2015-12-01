@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.swing.plaf.SliderUI;
 
-import pt.iscte.lei.pi.firujo.bughierarchy.Mosquito;
+import pt.iscte.lei.pi.firujo.bughierarchy.Pigeon;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
 import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
 import pt.iscte.lei.pi.firujo.utils.DiscreteRandomVariable;
@@ -46,8 +46,8 @@ public class GameThread extends Observable implements Runnable {
 			Board.getInstance().addARat(rat);
 			break;
 		case 1:
-			Mosquito mosquito = new Mosquito();
-			Board.getInstance().addAMosquito(mosquito);
+			Pigeon pigeon = new Pigeon();
+			Board.getInstance().addAPigeon(pigeon);
 			break;
 		case 2:		
 			Roach roach = new Roach();
