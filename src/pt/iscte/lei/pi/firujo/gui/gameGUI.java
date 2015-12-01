@@ -28,7 +28,7 @@ public class gameGUI extends JComponent {
 	
 	private Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 
-	private JPanel boardPanel = new JPanel();
+	public static JPanel boardPanel = new JPanel();
 	private JPanel informationPanel = new JPanel();
 	private JPanel myInfoPanel = new JPanel();
 	private JPanel topScoresPanel = new JPanel();
@@ -57,6 +57,10 @@ public class gameGUI extends JComponent {
 
 	public void init() {
 		frame.setVisible(true);
+		for (int i = 0; i < 9; i++) {
+
+		}
+
 	}
 
 	public void gui() {

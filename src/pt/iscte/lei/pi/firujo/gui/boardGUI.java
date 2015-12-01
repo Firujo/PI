@@ -4,6 +4,9 @@ package pt.iscte.lei.pi.firujo.gui;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.File;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -13,46 +16,51 @@ import pt.iscte.lei.pi.firujo.bughierarchy.Mosquito;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
 import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
 import pt.iscte.lei.pi.firujo.game.Board;
-import pt.iscte.lei.pi.firujo.game.BoardPhilips;
 import pt.iscte.lei.pi.firujo.utils.GaussianRandomVariable;
 
 public class boardGUI extends JComponent implements Observer{
 	//para desenhar o tabuleiro e cenas no tabuleiro. (por os bonecos etc)
 	
-	private BoardPhilips b;
+	private Board b;
 	private int x;
 	private int y;
 	
-	public boardGUI(BoardPhilips board) {
+	public boardGUI(Board board) {
 		super();
 		this.b = board;
-		this.x=board.x;
-		this.y=board.y;
+		//this.x=board.x;
+		//this.y=board.y;
 		
 	}
 	
 	public void drawRats(Graphics g){
 		for (Rat rat : Board.getInstance().getMyRats()) {
-			g.setColor(Color.RED);
-			g.fillOval((int)rat.getSpawnPoint().getX(), (int)rat.getSpawnPoint().getY(), 50, 50);
-			g.setColor(Color.BLACK);
+			Image img = Toolkit.getDefaultToolkit().getImage("images" + File.separator + "rat-sf.png");
+			g.drawImage(img, (int)rat.getSpawnPoint().getX(), (int)rat.getSpawnPoint().getY(), 50, 50, null);
+			//g.setColor(Color.RED);
+			//g.fillOval((int)rat.getSpawnPoint().getX(), (int)rat.getSpawnPoint().getY(), 50, 50);
+			//g.setColor(Color.BLACK);
 		}
 		
 	}
 	
 	public void drawMosquitos(Graphics g){
 		for (Mosquito mosquito : Board.getInstance().getMyMosquitos()) {
-			g.setColor(Color.GREEN);
-			g.fillOval((int)mosquito.getSpawnPoint().getX(), (int)mosquito.getSpawnPoint().getY(), 50, 50);
-			g.setColor(Color.BLACK);
+			Image img = Toolkit.getDefaultToolkit().getImage("images" + File.separator + "pigeon-sf.png");
+			g.drawImage(img, (int)mosquito.getSpawnPoint().getX(), (int)mosquito.getSpawnPoint().getY(), 50, 50, null);
+			//g.setColor(Color.GREEN);
+			//g.fillOval((int)mosquito.getSpawnPoint().getX(), (int)mosquito.getSpawnPoint().getY(), 50, 50);
+			//g.setColor(Color.BLACK);
 		}
 	}
 	
 	public void drawCockroaches(Graphics g){
 		for (Roach roach: Board.getInstance().getMyRoaches()) {
-			g.setColor(Color.BLUE);
-			g.fillOval((int)roach.getSpawnPoint().getX(), (int)roach.getSpawnPoint().getY(), 50, 50);
-			g.setColor(Color.BLACK);
+			Image img = Toolkit.getDefaultToolkit().getImage("images" + File.separator + "roach-sf.png");
+			g.drawImage(img, (int)roach.getSpawnPoint().getX(), (int)roach.getSpawnPoint().getY(), 50, 50, null);
+			//g.setColor(Color.BLUE);
+			//g.fillOval((int)roach.getSpawnPoint().getX(), (int)roach.getSpawnPoint().getY(), 50, 50);
+			//g.setColor(Color.BLACK);
 		}
 	}
 	
