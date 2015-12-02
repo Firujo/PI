@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import pt.iscte.lei.pi.firujo.cronometro.Cronometro;
 import pt.iscte.lei.pi.firujo.game.Board;
 import pt.iscte.lei.pi.firujo.game.GameThread;
 import pt.iscte.lei.pi.firujo.game.MouseGameListener;
@@ -32,7 +33,10 @@ public class gameGUI extends JComponent {
 	private JPanel informationPanel = new JPanel();
 	private JPanel myInfoPanel = new JPanel();
 	private JPanel topScoresPanel = new JPanel();
-
+//	private JPanel cronoPanel = new JPanel();
+	private JLabel cronoLabel;
+	
+	
 	private JFrame frame = new JFrame("Pest Control");
 
 	public gameGUI(boardGUI b) {
@@ -54,7 +58,7 @@ public class gameGUI extends JComponent {
 		Thread thread = new Thread(gameThread);
 		thread.start();
 	}
-
+	
 	public void init() {
 		frame.setVisible(true);
 		for (int i = 0; i < 9; i++) {
@@ -74,9 +78,7 @@ public class gameGUI extends JComponent {
 		frame.setVisible(false);
 
 		frame.add(boardPanel, BorderLayout.CENTER);
-		boardPanel.setLayout(new BorderLayout()); // Se nao metesse isto, ele
-													// nao ia desenhar nada
-		// pq por definicao tem um flow que reduz o tamanho e nao mostraria nada
+		boardPanel.setLayout(new BorderLayout());
 
 		boardPanel.add(board);
 		frame.add(informationPanel, BorderLayout.SOUTH);
@@ -87,17 +89,16 @@ public class gameGUI extends JComponent {
 		informationPanel.setLayout(new GridLayout(1, 2));
 		informationPanel.add(myInfoPanel);
 		informationPanel.add(topScoresPanel);
-
-		// - TAL como se fez a boardGUI, podera ser necessario criar uma classe
-		// para
-		// trabalhar estas partes de baixo, ou entao como sao menos relevantes
-		// faz-se directamente aqui
-		// discutir este ponto.-
-
+		
 		myInfoPanel.setLayout(new GridLayout(3, 1));
 		myInfoPanel.add(new JButton("Teste: Health Points"));
 		myInfoPanel.add(new JButton("Teste: Points"));
-		myInfoPanel.add(new JButton("Teste: time"));
+//		myInfoPanel.add(new JButton("Teste: time"));
+		
+		cronoLabel= new JLabel("00:00");
+		myInfoPanel.add(cronoLabel);
+		Cronometro cronometro=new Cronometro(cronoLabel);
+		cronometro.run();
 
 		// Inserir no topScoresPanel as cenas do top scores.
 		HighScoreManager highsm = new HighScoreManager();
@@ -124,12 +125,6 @@ public class gameGUI extends JComponent {
 		centeredPanel.add(secondPlace);
 		centeredPanel.add(thirdPlace);
 
-		// explicacao a apagar: Tive de usar o centerPanel pq se usasse so o
-		// topscoresPanel em grid
-		// ficava tudo mt a esquerda, assim e com a aldrabice da Label so com
-		// espa�o no west ele ja estica.
-		// isto foi aldrabado, mas se nao metesse essa label a esquerda, o
-		// center esticava e ocupava td
 
 	}
 
