@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -74,7 +75,7 @@ public class gameGUI extends JComponent {
 		frame.requestFocusInWindow();
 		frame.setFocusable(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(true);
+		frame.setResizable(false);
 		frame.setVisible(false);
 
 		frame.add(boardPanel, BorderLayout.CENTER);
