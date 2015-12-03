@@ -43,7 +43,8 @@ public class boardGUI extends JComponent implements Observer {
 	public void drawRats(Graphics g) {
 		for (Rat rat : Board.getInstance().getMyRats()) {
 			Image img = Toolkit.getDefaultToolkit().getImage("images" + File.separator + "rat-sf.png");
-			g.drawImage(img, (int) rat.getSpawnPoint().getX(), (int) rat.getSpawnPoint().getY(), 50, 50, null);
+			int iSize = (getHeight()/10) * rat.getImageMultiplier();
+			g.drawImage(img, (int) rat.getSpawnPoint().getX(), (int) rat.getSpawnPoint().getY(), iSize, iSize, null);
 			// g.setColor(Color.RED);
 			// g.fillOval((int)rat.getSpawnPoint().getX(),
 			// (int)rat.getSpawnPoint().getY(), 50, 50);
@@ -55,7 +56,8 @@ public class boardGUI extends JComponent implements Observer {
 	public void drawPigeons(Graphics g) {
 		for (Pigeon pigeon : Board.getInstance().getMyPigeons()) {
 			Image img = Toolkit.getDefaultToolkit().getImage("images" + File.separator + "pigeon-sf.png");
-			g.drawImage(img, (int) pigeon.getSpawnPoint().getX(), (int) pigeon.getSpawnPoint().getY(), 50, 50, null);
+			int iSize = (getHeight()/10) * pigeon.getImageMultiplier();
+			g.drawImage(img, (int) pigeon.getSpawnPoint().getX(), (int) pigeon.getSpawnPoint().getY(), iSize, iSize, null);
 			// g.setColor(Color.GREEN);
 			// g.fillOval((int)mosquito.getSpawnPoint().getX(),
 			// (int)mosquito.getSpawnPoint().getY(), 50, 50);
@@ -66,7 +68,8 @@ public class boardGUI extends JComponent implements Observer {
 	public void drawCockroaches(Graphics g) {
 		for (Roach roach : Board.getInstance().getMyRoaches()) {
 			Image img = Toolkit.getDefaultToolkit().getImage("images" + File.separator + "roach-sf.png");
-			g.drawImage(img, (int) roach.getSpawnPoint().getX(), (int) roach.getSpawnPoint().getY(), 50, 50, null);
+			int iSize = (getHeight()/10) * roach.getImageMultiplier();
+			g.drawImage(img, (int) roach.getSpawnPoint().getX(), (int) roach.getSpawnPoint().getY(), iSize, iSize, null);
 			// g.setColor(Color.BLUE);
 			// g.fillOval((int)roach.getSpawnPoint().getX(),
 			// (int)roach.getSpawnPoint().getY(), 50, 50);

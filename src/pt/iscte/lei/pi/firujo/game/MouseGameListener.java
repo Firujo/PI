@@ -4,10 +4,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Observable;
 
-
 import pt.iscte.lei.pi.firujo.bughierarchy.Pigeon;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
 import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
+import pt.iscte.lei.pi.firujo.gui.gameGUI;
 
 public class MouseGameListener extends Observable implements MouseListener {
 
@@ -36,10 +36,12 @@ public class MouseGameListener extends Observable implements MouseListener {
 			@Override
 			public void run() {
 				for (Rat rat : Board.getInstance().getMyRats()) {
-					if (e.getX() - rat.getSpawnPoint().getX() - 25 < 25
-							&& e.getY() - rat.getSpawnPoint().getY() - 25 < 25
-							&& e.getX() - rat.getSpawnPoint().getX() - 25 > -25
-							&& e.getY() - rat.getSpawnPoint().getY() - 25 > -25) {
+					int imageMultiplier = rat.getImageMultiplier();
+					int imageSize = (gameGUI.boardPanel.getHeight()/10) * imageMultiplier;
+					if (e.getX() - rat.getSpawnPoint().getX() - (imageSize/2) < (imageSize/2)
+							&& e.getY() - rat.getSpawnPoint().getY() - (imageSize/2) < (imageSize/2)
+							&& e.getX() - rat.getSpawnPoint().getX() - (imageSize/2) > -(imageSize/2)
+							&& e.getY() - rat.getSpawnPoint().getY() - (imageSize/2) > -(imageSize/2)) {
 						Board.getInstance().getMyRats().remove(rat);
 						setChanged();
 						notifyObservers();
@@ -54,10 +56,12 @@ public class MouseGameListener extends Observable implements MouseListener {
 			@Override
 			public void run() {
 				for (Roach roach : Board.getInstance().getMyRoaches()) {
-					if (e.getX() - roach.getSpawnPoint().getX() - 25 < 25
-							&& e.getY() - roach.getSpawnPoint().getY() - 25 < 25
-							&& e.getX() - roach.getSpawnPoint().getX() - 25 > -25
-							&& e.getY() - roach.getSpawnPoint().getY() - 25 > -25) {
+					int imageMultiplier = roach.getImageMultiplier();
+					int imageSize = (gameGUI.boardPanel.getHeight()/10) * imageMultiplier;
+					if (e.getX() - roach.getSpawnPoint().getX() - (imageSize/2) < (imageSize/2)
+							&& e.getY() - roach.getSpawnPoint().getY() - (imageSize/2) < (imageSize/2)
+							&& e.getX() - roach.getSpawnPoint().getX() - (imageSize/2) > -(imageSize/2)
+							&& e.getY() - roach.getSpawnPoint().getY() - (imageSize/2) > -(imageSize/2)) {
 						Board.getInstance().getMyRoaches().remove(roach);
 						setChanged();
 						notifyObservers();
@@ -72,10 +76,12 @@ public class MouseGameListener extends Observable implements MouseListener {
 			@Override
 			public void run() {
 				for (Pigeon pigeon : Board.getInstance().getMyPigeons()) {
-					if (e.getX() - pigeon.getSpawnPoint().getX() - 25 < 25
-							&& e.getY() - pigeon.getSpawnPoint().getY() - 25 < 25
-							&& e.getX() - pigeon.getSpawnPoint().getX() - 25 > -25
-							&& e.getY() - pigeon.getSpawnPoint().getY() - 25 > -25) {
+					int imageMultiplier = pigeon.getImageMultiplier();
+					int imageSize = (gameGUI.boardPanel.getHeight()/10) * imageMultiplier;
+					if (e.getX() - pigeon.getSpawnPoint().getX() - (imageSize/2) < (imageSize/2)
+							&& e.getY() - pigeon.getSpawnPoint().getY() - (imageSize/2) < (imageSize/2)
+							&& e.getX() - pigeon.getSpawnPoint().getX() - (imageSize/2) > -(imageSize/2)
+							&& e.getY() - pigeon.getSpawnPoint().getY() - (imageSize/2) > -(imageSize/2)) {
 						Board.getInstance().getMyPigeons().remove(pigeon);
 						setChanged();
 						notifyObservers();
