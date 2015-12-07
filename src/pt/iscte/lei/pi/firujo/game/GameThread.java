@@ -8,6 +8,8 @@ import javax.swing.plaf.SliderUI;
 import pt.iscte.lei.pi.firujo.bughierarchy.Pigeon;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
 import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
+import pt.iscte.lei.pi.firujo.gui.HpBar;
+import pt.iscte.lei.pi.firujo.gui.gameGUI;
 import pt.iscte.lei.pi.firujo.utils.DiscreteRandomVariable;
 
 public class GameThread extends Observable implements Runnable {
@@ -24,7 +26,10 @@ public class GameThread extends Observable implements Runnable {
 
 		while (!Thread.interrupted()) { // logo se vê como vamos parar o jogo
 			if (System.currentTimeMillis() - last > TimeUnit.SECONDS.toMillis(timeBetweenBugSpawning)) {
-
+				
+				gameGUI.hpBar.hpHit(10);
+				gameGUI.hpBar.repaint();
+				
 				spawnBug();
 
 				last = System.currentTimeMillis();

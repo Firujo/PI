@@ -33,6 +33,8 @@ public class gameGUI extends JComponent {
 	public static JPanel boardPanel = new JPanel();
 	private JPanel informationPanel = new JPanel();
 	private JPanel myInfoPanel = new JPanel();
+	private JPanel hpPanel = new JPanel();
+	public static HpBar hpBar = new HpBar();
 	private JPanel topScoresPanel = new JPanel();
 //	private JPanel cronoPanel = new JPanel();
 	private JLabel cronoLabel;
@@ -92,7 +94,13 @@ public class gameGUI extends JComponent {
 		informationPanel.add(topScoresPanel);
 		
 		myInfoPanel.setLayout(new GridLayout(3, 1));
-		myInfoPanel.add(new JButton("Teste: Health Points"));
+		
+		//myInfoPanel.add(new JButton("Teste: Health Points"));
+		hpPanel.setLayout(new BorderLayout());
+		hpPanel.add(hpBar, BorderLayout.CENTER);
+		hpPanel.add(new JLabel("HP: "), BorderLayout.WEST);
+		myInfoPanel.add(hpPanel);
+		
 		myInfoPanel.add(new JButton("Teste: Points"));
 //		myInfoPanel.add(new JButton("Teste: time"));
 		
