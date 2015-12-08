@@ -30,7 +30,7 @@ public class boardGUI extends JComponent implements Observer {
 		super();
 		this.b = board;
 		try {
-			backgroundImage = javax.imageio.ImageIO.read(new File("images/sasdad.png"));
+			backgroundImage = javax.imageio.ImageIO.read(new File("images/floor final.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
