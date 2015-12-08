@@ -10,6 +10,8 @@ public class Cronometro implements Runnable {
 	private JLabel cronLabel;
 	private Timer timer;
 	private int contador;
+	private int segundos;
+	private int minutos;
 	
 	public Cronometro(JLabel label) {
 		super();
@@ -25,13 +27,21 @@ public class Cronometro implements Runnable {
 		@Override
 		public void run() {
 			contador++; //a cada 1000 ms acrescenta 1
-			int segundos = contador % 60;
-			int minutos = contador / 60;
+			segundos = contador % 60;
+			minutos = contador / 60;
 			minutos %= 60;
 			cronLabel.setText(String.format("%02d:%02d",minutos, segundos));
 			//digam se ha forma de optimizar esta parte do string format!
 		}  
         },1000,1000);
+	}
+
+	public int getSegundos() {
+		return segundos;
+	}
+
+	public int getMinutos() {
+		return minutos;
 	}
 
 }

@@ -36,6 +36,7 @@ public class gameGUI extends JComponent {
 	private JPanel hpPanel = new JPanel();
 	public static HpBar hpBar = new HpBar();
 	private JPanel topScoresPanel = new JPanel();
+	public static Cronometro cronometro;
 //	private JPanel cronoPanel = new JPanel();
 	private JLabel cronoLabel;
 	
@@ -106,7 +107,7 @@ public class gameGUI extends JComponent {
 		
 		cronoLabel= new JLabel("00:00");
 		myInfoPanel.add(cronoLabel);
-		Cronometro cronometro=new Cronometro(cronoLabel);
+		cronometro=new Cronometro(cronoLabel);
 		cronometro.run();
 
 		// Inserir no topScoresPanel as cenas do top scores.

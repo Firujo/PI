@@ -15,6 +15,7 @@ import pt.iscte.lei.pi.firujo.utils.DiscreteRandomVariable;
 public class GameThread extends Observable implements Runnable {
 	private long last;
 	private int timeBetweenBugSpawning;
+	private int actualMinute;
 
 	public GameThread() {
 		last = System.currentTimeMillis();
@@ -29,7 +30,11 @@ public class GameThread extends Observable implements Runnable {
 				
 				gameGUI.hpBar.hpHit(10);
 				gameGUI.hpBar.repaint();
-				
+				actualMinute=gameGUI.cronometro.getMinutos();
+				if(actualMinute==2){
+					System.out.println("Cheguei aos 2 min, vou parar !!!!!!!!!!!!!");
+					System.exit(0);
+				}
 				spawnBug();
 
 				last = System.currentTimeMillis();
