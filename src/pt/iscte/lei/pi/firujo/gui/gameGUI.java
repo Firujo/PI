@@ -39,6 +39,8 @@ public class gameGUI extends JComponent {
 	public static Cronometro cronometro;
 //	private JPanel cronoPanel = new JPanel();
 	private JLabel cronoLabel;
+	private static int points = 0;
+	public static JLabel JLpoints = new JLabel();
 	
 	
 	private JFrame frame = new JFrame("Pest Control");
@@ -69,6 +71,12 @@ public class gameGUI extends JComponent {
 
 		}
 
+	}
+	
+	public static void addPoints(int n){
+		points = points + n;
+		JLpoints.setText("Points:  " + points);
+		JLpoints.repaint();
 	}
 
 	public void gui() {
@@ -102,7 +110,10 @@ public class gameGUI extends JComponent {
 		hpPanel.add(new JLabel("HP: "), BorderLayout.WEST);
 		myInfoPanel.add(hpPanel);
 		
-		myInfoPanel.add(new JButton("Teste: Points"));
+		//myInfoPanel.add(new JButton("Teste: Points"));
+		JLpoints.setText("Points:  " + points);
+		myInfoPanel.add(JLpoints);
+		
 //		myInfoPanel.add(new JButton("Teste: time"));
 		
 		cronoLabel= new JLabel("00:00");

@@ -42,6 +42,9 @@ public class MouseGameListener extends Observable implements MouseListener {
 							&& e.getY() - rat.getSpawnPoint().getY() - (imageSize/2) < (imageSize/2)
 							&& e.getX() - rat.getSpawnPoint().getX() - (imageSize/2) > -(imageSize/2)
 							&& e.getY() - rat.getSpawnPoint().getY() - (imageSize/2) > -(imageSize/2)) {
+						int pointsWon = 30 / rat.getImageMultiplier();
+						gameGUI.addPoints(pointsWon);
+						System.out.println("pontos ganhos: " + pointsWon);
 						Board.getInstance().getMyRats().remove(rat);
 						setChanged();
 						notifyObservers();
@@ -62,6 +65,9 @@ public class MouseGameListener extends Observable implements MouseListener {
 							&& e.getY() - roach.getSpawnPoint().getY() - (imageSize/2) < (imageSize/2)
 							&& e.getX() - roach.getSpawnPoint().getX() - (imageSize/2) > -(imageSize/2)
 							&& e.getY() - roach.getSpawnPoint().getY() - (imageSize/2) > -(imageSize/2)) {
+						int pointsWon = 30 / roach.getImageMultiplier();
+						gameGUI.addPoints(pointsWon);
+						System.out.println("pontos ganhos: " + pointsWon);
 						Board.getInstance().getMyRoaches().remove(roach);
 						setChanged();
 						notifyObservers();
@@ -82,6 +88,9 @@ public class MouseGameListener extends Observable implements MouseListener {
 							&& e.getY() - pigeon.getSpawnPoint().getY() - (imageSize/2) < (imageSize/2)
 							&& e.getX() - pigeon.getSpawnPoint().getX() - (imageSize/2) > -(imageSize/2)
 							&& e.getY() - pigeon.getSpawnPoint().getY() - (imageSize/2) > -(imageSize/2)) {
+						int pointsWon = 30 / pigeon.getImageMultiplier();
+						gameGUI.addPoints(pointsWon);
+						System.out.println("pontos ganhos: " + pointsWon);
 						Board.getInstance().getMyPigeons().remove(pigeon);
 						setChanged();
 						notifyObservers();

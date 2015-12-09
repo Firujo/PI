@@ -1,6 +1,7 @@
 package pt.iscte.lei.pi.firujo.game;
 
 import java.util.Observable;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.plaf.SliderUI;
@@ -48,9 +49,16 @@ public class GameThread extends Observable implements Runnable {
 
 	private void spawnBug() {
 		
-		DiscreteRandomVariable drv = new DiscreteRandomVariable(0, 2);
+		//DiscreteRandomVariable drv = new DiscreteRandomVariable(0, 2);
+		int choice = 0;
+		//V.A. discreta 1)
+		double va1 = (new Random()).nextDouble();
+		if ( va1 < 0.5 ) choice = 2;
+		else if ( va1 >= 0.5 && va1 < (0.5 + ((double) 1 / (double) 3)) ) choice = 0;
+		else choice = 1;
+	
 		
-		switch (drv.generateRV()) {
+		switch (choice) {
 		case 0:
 			Rat rat = new Rat();
 			Board.getInstance().addARat(rat);
