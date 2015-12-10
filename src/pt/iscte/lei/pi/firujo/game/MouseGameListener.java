@@ -10,13 +10,15 @@ import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
 import pt.iscte.lei.pi.firujo.gui.gameGUI;
 
 public class MouseGameListener extends Observable implements MouseListener {
-
+	private boolean cantClick; 
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		System.out.println(e.getPoint());
-
+		if(cantClick==false){
 		checkIfHitAndRemove(e);
-
+		}
+		else System.out.println("the game ended , time is up");
 	}
 
 	private void checkIfHitAndRemove(final MouseEvent e) {
@@ -35,6 +37,7 @@ public class MouseGameListener extends Observable implements MouseListener {
 
 			@Override
 			public void run() {
+				cantClick=GameThread.cantKill;
 				for (Rat rat : Board.getInstance().getMyRats()) {
 					int imageMultiplier = rat.getImageMultiplier();
 					int imageSize = (gameGUI.boardPanel.getHeight()/10) * imageMultiplier;

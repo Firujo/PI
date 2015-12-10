@@ -17,6 +17,7 @@ public class GameThread extends Observable implements Runnable {
 	private long last;
 	private int timeBetweenBugSpawning;
 	private int actualMinute;
+	public static boolean cantKill=false;
 
 	public GameThread() {
 		last = System.currentTimeMillis();
@@ -27,22 +28,27 @@ public class GameThread extends Observable implements Runnable {
 	public void run() {
 
 		while (!Thread.interrupted()) { // logo se vê como vamos parar o jogo
-			if (System.currentTimeMillis() - last > TimeUnit.SECONDS.toMillis(timeBetweenBugSpawning)) {
+			actualMinute=gameGUI.cronometro.getMinutos();
+			if(actualMinute<2){
 				
-				gameGUI.hpBar.hpHit(10);
-				gameGUI.hpBar.repaint();
-				actualMinute=gameGUI.cronometro.getMinutos();
-				if(actualMinute==2){
-					System.out.println("Cheguei aos 2 min, vou parar !!!!!!!!!!!!!");
-					System.exit(0);
+				if (System.currentTimeMillis() - last > TimeUnit.SECONDS.toMillis(timeBetweenBugSpawning)) {
+					
+					gameGUI.hpBar.hpHit(10);
+					gameGUI.hpBar.repaint();
+					
+					spawnBug();
+
+					last = System.currentTimeMillis();
+					timeBetweenBugSpawning = 1;
+
+					this.setChanged();
+					this.notifyObservers();
 				}
-				spawnBug();
-
-				last = System.currentTimeMillis();
-				timeBetweenBugSpawning = 1;
-
-				this.setChanged();
-				this.notifyObservers();
+			}else{
+				System.out.println("acabei passei o 2 min");
+				cantKill=true;
+				//acao que se deve fazer quando acaba - nova janela e pedir nome ?
+//				System.exit(0);
 			}
 		}
 	}
