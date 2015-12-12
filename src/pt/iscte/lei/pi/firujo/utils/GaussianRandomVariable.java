@@ -38,13 +38,13 @@ public class GaussianRandomVariable {
 								// (4 - lvl para que a orientação seja feita do
 								// centro para a extremidade do campo)
 
-		int lvlDeviation = 0;
-		if (level == 2) {
+		int lvlDeviation = (height / 2) / 4;
+		/*if (level == 2) {
 			lvlDeviation = ((height / 2) / 4) * 2; // pode ser simplificado mas
 													// fica assim para explicar
 		} else {
 			lvlDeviation = ((height / 2) / 4) * 3;
-		}
+		}*/
 
 		while (true) {
 			double rv = lvlDeviation * Math.sqrt(-2 * Math.log((new Random()).nextDouble()))
@@ -70,12 +70,12 @@ public class GaussianRandomVariable {
 	public int getX(int quadrant) {
 		Integer x;
 		int lvlMean = ((width / 2) / 4) * (4 - level);
-		int lvlDeviation = 0;
-		if (level == 2) {
-			lvlDeviation = (width / 4);
+		int lvlDeviation = (width / 2) / 4;
+		/*if (level == 2) {
+			lvlDeviation = (width / 2) / 4;
 		} else {
 			lvlDeviation = (width / 8) * 3;
-		}
+		}*/
 
 		while (true) {
 			double rv = lvlDeviation * Math.sqrt(-2 * Math.log((new Random()).nextDouble()))

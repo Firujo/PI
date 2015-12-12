@@ -10,16 +10,21 @@ public class HpBar extends JComponent{
 	private int hp = 375;
 	
 	public void hpHit(int hit){
-		hp = hp - hit;
+		changeHp("-", hit);
 	}
 	
 	public void hpPowerUp(int pu){
-		hp = hp + pu;
+		changeHp("+", pu);
 	}
 	
 	public boolean isDead(){
 		if (hp <= 0) return true;
 		return false;
+	}
+	
+	public synchronized void changeHp(String signal, int value){
+		if (signal.equals("+")) hp = hp + value;
+		else if (signal.equals("-")) hp = hp - value;
 	}
 	
 	public void paint(Graphics g){

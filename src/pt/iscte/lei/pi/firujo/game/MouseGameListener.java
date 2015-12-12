@@ -232,6 +232,7 @@ public class MouseGameListener extends Observable implements MouseListener {
 //							else gameGUI.hpBar.hpHit(2);
 //						}
 						Board.getInstance().getMyBombs().remove(bomb);
+						gameGUI.hpBar.hpHit(20);
 //						Board.getInstance().changeNumOfAnimals("-", 1);
 						new Thread(new Runnable() {
 							  // The wrapper thread is unnecessary, unless it blocks on the
@@ -285,6 +286,7 @@ public class MouseGameListener extends Observable implements MouseListener {
 //							else gameGUI.hpBar.hpHit(2);
 //						}
 						Board.getInstance().getMyHps().remove(hp);
+						gameGUI.hpBar.hpPowerUp(20);
 //						Board.getInstance().changeNumOfAnimals("-", 1);
 						setChanged();
 						notifyObservers();
