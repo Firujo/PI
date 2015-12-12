@@ -1,16 +1,23 @@
 package pt.iscte.lei.pi.firujo.game;
 
+import java.io.File;
 import java.util.Observable;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.plaf.SliderUI;
 
+import pt.iscte.lei.pi.firujo.bughierarchy.Bomb;
+import pt.iscte.lei.pi.firujo.bughierarchy.Hp;
 import pt.iscte.lei.pi.firujo.bughierarchy.Pigeon;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
 import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
 import pt.iscte.lei.pi.firujo.gui.HpBar;
 import pt.iscte.lei.pi.firujo.gui.gameGUI;
+import pt.iscte.lei.pi.firujo.main.Main;
 import pt.iscte.lei.pi.firujo.utils.DiscreteRandomVariable;
 
 public class GameThread extends Observable implements Runnable {
@@ -28,6 +35,7 @@ public class GameThread extends Observable implements Runnable {
 	@Override
 	public void run() {
 
+		playBackgroundMusic();
 		while (!Thread.interrupted()) { // logo se vê como vamos parar o jogo
 			actualMinute=gameGUI.cronometro.getMinutos();
 			if(actualMinute < 2 && !gameGUI.hpBar.isDead()){
@@ -63,6 +71,23 @@ public class GameThread extends Observable implements Runnable {
 		}
 	}
 
+	private void playBackgroundMusic() {
+		new Thread(new Runnable() {
+			  // The wrapper thread is unnecessary, unless it blocks on the
+			  // Clip finishing; see comments.
+			    public void run() {
+			      try {
+			        Clip clip = AudioSystem.getClip();
+			        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("sound" + File.separator + "bgmusic.wav"));
+			        clip.open(inputStream);
+			        clip.start(); 
+			      } catch (Exception e) {
+			        System.err.println(e.getMessage());
+			      }
+			    }
+			  }).start();
+	}
+
 	private void spawnBug() {
 		
 		//DiscreteRandomVariable drv = new DiscreteRandomVariable(0, 2);
@@ -75,11 +100,11 @@ public class GameThread extends Observable implements Runnable {
 		
 		double va7 = (new Random()).nextDouble();
 		if ( va7 < 0.1 ){
-			//Bomb bomb = new Bomb();
-			//Board.getInstance().addABomb(bomb);
+			Bomb bomb = new Bomb(gameLvl);
+			Board.getInstance().addABomb(bomb);
 		} else if ( va7 >= 0.1 && va7 < 0.2){
-			//Life life = new Life();
-			//Board.getInstance().addALife(life);
+			Hp hp = new Hp(1);
+			Board.getInstance().addHP(hp);
 		}
 		
 		switch (choice) {

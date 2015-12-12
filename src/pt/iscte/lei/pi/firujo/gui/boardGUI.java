@@ -12,6 +12,8 @@ import java.util.Observer;
 
 import javax.swing.JComponent;
 
+import pt.iscte.lei.pi.firujo.bughierarchy.Bomb;
+import pt.iscte.lei.pi.firujo.bughierarchy.Hp;
 import pt.iscte.lei.pi.firujo.bughierarchy.Pigeon;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
 import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
@@ -117,6 +119,32 @@ public class boardGUI extends JComponent implements Observer {
 		drawRats(g);
 		drawPigeons(g);
 		drawCockroaches(g);
+		drawBombs(g);
+		drawHP(g);
+	}
+
+	private void drawHP(Graphics g) {
+		for (Hp hp : Board.getInstance().getMyHps()) {
+			Image img = Toolkit.getDefaultToolkit().getImage("images" + File.separator + "hp-icon.png");
+			int iSize = (getHeight()/10) * hp.getImageMultiplier();
+			g.drawImage(img, (int) hp.getSpawnPoint().getX(), (int) hp.getSpawnPoint().getY(), iSize, iSize, null);
+			// g.setColor(Color.GREEN);
+			// g.fillOval((int)mosquito.getSpawnPoint().getX(),
+			// (int)mosquito.getSpawnPoint().getY(), 50, 50);
+			// g.setColor(Color.BLACK);
+		}
+	}
+
+	private void drawBombs(Graphics g) {
+		for (Bomb bomb : Board.getInstance().getMyBombs()) {
+			Image img = Toolkit.getDefaultToolkit().getImage("images" + File.separator + "bomb.png");
+			int iSize = (getHeight()/10) * bomb.getImageMultiplier();
+			g.drawImage(img, (int) bomb.getSpawnPoint().getX(), (int) bomb.getSpawnPoint().getY(), iSize, iSize, null);
+			// g.setColor(Color.GREEN);
+			// g.fillOval((int)mosquito.getSpawnPoint().getX(),
+			// (int)mosquito.getSpawnPoint().getY(), 50, 50);
+			// g.setColor(Color.BLACK);
+		}
 	}
 
 	private void drawBackground(Graphics g) {

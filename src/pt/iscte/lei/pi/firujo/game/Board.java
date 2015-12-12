@@ -3,6 +3,8 @@ package pt.iscte.lei.pi.firujo.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import pt.iscte.lei.pi.firujo.bughierarchy.Bomb;
+import pt.iscte.lei.pi.firujo.bughierarchy.Hp;
 import pt.iscte.lei.pi.firujo.bughierarchy.Pigeon;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
 import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
@@ -33,9 +35,27 @@ public class Board {
 	private List<Rat> myRats = new ArrayList<Rat>();
 	private List<Roach> myRoaches = new ArrayList<Roach>();
 	private List<Pigeon> myPigeons = new ArrayList<Pigeon>();
-
+	private List<Bomb> myBombs = new ArrayList<Bomb>();
+	private List<Hp> myHps = new ArrayList<Hp>();
+	
 	public List<Rat> getMyRats() {
 		return myRats;
+	}
+	
+	public List<Bomb> getMyBombs(){
+		return this.myBombs;
+	}
+	
+	public List<Hp> getMyHps(){
+		return this.myHps;
+	}
+	
+	public void addHP(Hp hp){
+		this.myHps.add(hp);
+	}
+	
+	public void addABomb(Bomb bomb) {
+		myBombs.add(bomb);
 	}
 
 	public void setMyRats(List<Rat> myRats) {
