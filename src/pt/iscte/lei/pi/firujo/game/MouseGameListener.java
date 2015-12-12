@@ -80,7 +80,7 @@ public class MouseGameListener extends Observable implements MouseListener {
 							    public void run() {
 							      try {
 							        Clip clip = AudioSystem.getClip();
-							        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("sound" + File.separator + "ratdieing.wav"));
+							        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("sound" + File.separator + "rat.wav"));
 							        clip.open(inputStream);
 							        clip.start(); 
 							      } catch (Exception e) {
@@ -133,7 +133,7 @@ public class MouseGameListener extends Observable implements MouseListener {
 							    public void run() {
 							      try {
 							        Clip clip = AudioSystem.getClip();
-							        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("sound" + File.separator + "cockroachdieing.wav"));
+							        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("sound" + File.separator + "cockroach.wav"));
 							        clip.open(inputStream);
 							        clip.start(); 
 							      } catch (Exception e) {
@@ -184,7 +184,7 @@ public class MouseGameListener extends Observable implements MouseListener {
 							    public void run() {
 							      try {
 							        Clip clip = AudioSystem.getClip();
-							        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("sound" + File.separator + "pigeondieing.wav"));
+							        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("sound" + File.separator + "pigeon.wav"));
 							        clip.open(inputStream);
 							        clip.start(); 
 							      } catch (Exception e) {
