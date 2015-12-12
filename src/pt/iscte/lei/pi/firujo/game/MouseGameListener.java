@@ -184,7 +184,7 @@ public class MouseGameListener extends Observable implements MouseListener {
 							    public void run() {
 							      try {
 							        Clip clip = AudioSystem.getClip();
-							        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("sound" + File.separator + "pingeondieing.wav"));
+							        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("sound" + File.separator + "pigeondieing.wav"));
 							        clip.open(inputStream);
 							        clip.start(); 
 							      } catch (Exception e) {
