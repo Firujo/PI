@@ -11,13 +11,13 @@ public class Tester{
 	private int numberOfRats = 0;
 	private int numberOfRoach = 0;
 	private int numberOfPigeon = 0;
-	private LinkedList<Double> valorGeradoP1 = new LinkedList<Double>();
+	private LinkedList<Integer> valorGeradoP1 = new LinkedList<Integer>();
 	
 	//p2)
 	private int numImgGrandes = 0;
 	private int numImgMedias = 0;
 	private int numImgPequenas = 0;
-	private LinkedList<Double> valorGeradoP2 = new LinkedList<Double>();
+	private LinkedList<Integer> valorGeradoP2 = new LinkedList<Integer>();
 	
 	//p3)
 	private int numOcurrFirstQuadrant = 0;
@@ -36,22 +36,22 @@ public class Tester{
 	private int numOcurrPontMax = 0;
 	private int numOcurrPontMedia = 0;
 	private int numOcurrPontMin = 0;
-	private LinkedList<Double> valorGeradoP4 = new LinkedList<Double>();
+	private LinkedList<Integer> valorGeradoP4 = new LinkedList<Integer>();
 	
 	//p5)
 	private int numOcurrDanoMax = 0;
 	private int numOcurrDanoMedio = 0;
 	private int numOcurrDanoMin = 0;
-	private LinkedList<Double> valorGeradoP5 = new LinkedList<Double>();
+	private LinkedList<Integer> valorGeradoP5 = new LinkedList<Integer>();
 	
 	//p6)
 	private int numOcurrEnvenenado = 0;
-	private LinkedList<Double> valorGeradoP6 = new LinkedList<Double>();
+	private LinkedList<Integer> valorGeradoP6 = new LinkedList<Integer>();
 	
 	//p7)
 	private int numOcurrBombas = 0;
 	private int numOcurrVidas = 0;
-	private LinkedList<Double> valorGeradoP7 = new LinkedList<Double>();
+	private LinkedList<Integer> valorGeradoP7 = new LinkedList<Integer>();
 
 	public Tester(int numbOc){
 		
@@ -60,17 +60,29 @@ public class Tester{
 		for (int i = 0; i < numberOfOcurrences; i++){
 			//Tipo animal(p1)
 			double va1 = (new Random()).nextDouble();
-			valorGeradoP1.add(va1);
-			if ( va1 < 0.5 ) numberOfRats++; //Rato
-			else if ( va1 >= 0.5 && va1 < (0.5 + (1.0 / 3.0)) ) numberOfRoach++; //Roach
-			else numberOfPigeon++; //Pigeon
+			if ( va1 < 0.5 ){
+				valorGeradoP1.add(0);
+				numberOfRats++; //Rato = 0
+			} else if ( va1 >= 0.5 && va1 < (0.5 + (1.0 / 3.0)) ){
+				valorGeradoP1.add(1);
+				numberOfRoach++; //Roach = 1
+			} else {
+				valorGeradoP1.add(2);
+				numberOfPigeon++; //Pigeon = 2
+			}
 			
 			//Tamanho imagem (p2)
 			double randomV = new Random().nextDouble();
-			valorGeradoP2.add(randomV);
-			if (randomV < 1.0/3.0 && randomV >= 0) numImgGrandes++; //Grande
-			else if (randomV < 2.0/3.0 && randomV >= 1.0/3.0) numImgMedias++; //Media
-			else numImgPequenas++; //Pequena
+			if (randomV < 1.0/3.0 && randomV >= 0){
+				valorGeradoP2.add(0);
+				numImgGrandes++; //Grande = 0
+			} else if (randomV < 2.0/3.0 && randomV >= 1.0/3.0){
+				valorGeradoP2.add(1);
+				numImgMedias++; //Media = 1
+			} else {
+				valorGeradoP2.add(2);
+				numImgPequenas++; //Pequena = 2
+			}
 			
 			//Local onde animal é criado (p3)
 			DiscreteRandomVariable dVA = new DiscreteRandomVariable(1, 4);
@@ -98,28 +110,48 @@ public class Tester{
 			
 			//Pontos que animal oferece ao ser morto (p4)
 			double random = new Random().nextDouble();
-			valorGeradoP4.add(random);
-			if (random >= 0.0 && random < 0.5 ) numOcurrPontMax++;
-			else if (random >= 0.5 && random < 0.8 ) numOcurrPontMedia++;
-			else numOcurrPontMin++;
+			if (random >= 0.0 && random < 0.5 ){
+				valorGeradoP4.add(0);
+				numOcurrPontMax++; //valor maximo = 0
+			} else if (random >= 0.5 && random < 0.8 ){
+				valorGeradoP4.add(1);
+				numOcurrPontMedia++; //valor media = 1
+			} else {
+				valorGeradoP4.add(2);
+				numOcurrPontMin++; //valor minimo = 2
+			}
 			
 			//Quantidade de vida que tira animal envenenado (p5)
 			double random2 = new Random().nextDouble();
-			valorGeradoP5.add(random2);
-			if (random2 >= 0.0 && random2 < 0.5) numOcurrDanoMax++;
-			else if (random2 >= 0.5 && random2 < 0.8 ) numOcurrDanoMedio++;
-			else numOcurrDanoMin++;
+			if (random2 >= 0.0 && random2 < 0.5){
+				valorGeradoP5.add(0);
+				numOcurrDanoMax++; //dano maximo = 0
+			} else if (random2 >= 0.5 && random2 < 0.8 ){
+				valorGeradoP5.add(1);
+				numOcurrDanoMedio++; //dano medio = 1
+			} else {
+				valorGeradoP5.add(2);
+				numOcurrDanoMin++; //dano minimo = 2
+			}
 			
 			//Animal estar envenenado (p6)
 			double random3 = new Random().nextDouble();
-			valorGeradoP6.add(random3);
-			if (random3 < 0.1) numOcurrEnvenenado++;
+			if (random3 < 0.1){
+				valorGeradoP6.add(0); //animal gerado envenenado = 0
+				numOcurrEnvenenado++;
+			} else valorGeradoP6.add(1); //animal gerado não está envenenado = 1
 			
 			//Aparecimento de item extra (p7)
 			double va7 = (new Random()).nextDouble();
-			valorGeradoP7.add(va7);
-			if ( va7 < 0.1 ) numOcurrBombas++;
-			else if ( va7 >= 0.1 && va7 < 0.2) numOcurrVidas++;
+			if ( va7 < 0.1 ){
+				valorGeradoP7.add(0); //bomba gerada = 0
+				numOcurrBombas++;
+			} else if ( va7 >= 0.1 && va7 < 0.2){
+				valorGeradoP7.add(1); //vida gerada = 1
+				numOcurrVidas++;
+			} else {
+				valorGeradoP7.add(2); //nada gerado = 2
+			}
 		}
 		
 		gerarResultadosP1();
