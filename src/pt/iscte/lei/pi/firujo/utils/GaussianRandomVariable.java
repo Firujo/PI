@@ -103,4 +103,8 @@ public class GaussianRandomVariable {
 		return rv;
 	}
 
+	public void setLvl(int lvl) {
+		this.level = lvl; 
+	}
+
 }

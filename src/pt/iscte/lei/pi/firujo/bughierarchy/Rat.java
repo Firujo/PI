@@ -7,8 +7,8 @@ import pt.iscte.lei.pi.firujo.utils.DiscreteRandomVariable;
 
 public class Rat extends Animal{
 	
-	public Rat(){
-		
+	public Rat(int lvl){
+		super(lvl);
 	}
 	
 }

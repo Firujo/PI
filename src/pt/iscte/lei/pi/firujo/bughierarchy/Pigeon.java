@@ -6,11 +6,8 @@ import pt.iscte.lei.pi.firujo.utils.DiscreteRandomVariable;
 
 public class Pigeon extends Animal{
 	
-	
-	public Pigeon(){
-		
+	public Pigeon(int lvl){
+		super(lvl);
 	}
-
-	
 	
 }

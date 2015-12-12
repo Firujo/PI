@@ -3,7 +3,6 @@ package pt.iscte.lei.pi.firujo.game;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import pt.iscte.lei.pi.firujo.bughierarchy.Pigeon;
 import pt.iscte.lei.pi.firujo.bughierarchy.Rat;
 import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
@@ -12,6 +11,21 @@ public class Board {
 
 	private static final Board board = new Board();
 
+	
+	private int currentNumOfAnimals = 0;
+	
+	public int getNumOfAnimals(){
+		return currentNumOfAnimals;
+	}
+	
+	public synchronized void changeNumOfAnimals(String sign, int number){
+		if (sign.equals("+")){
+			currentNumOfAnimals = currentNumOfAnimals + number;
+		} else {
+			currentNumOfAnimals = currentNumOfAnimals - number;
+		}
+	}
+	
 	public static Board getInstance() {
 		return board;
 	}
