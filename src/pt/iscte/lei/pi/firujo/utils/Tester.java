@@ -242,6 +242,15 @@ public class Tester{
 		for (int i = 0; i < numberOfOcurrences; i++){
 			System.out.println(valorYGeradoLvlThreeP3.get(i));
 		}
+		System.out.println("");
+		System.out.println("Ocurrencias de P3(posicao X no nivel 4): ");
+		for (int i = 0; i < numberOfOcurrences; i++){
+			System.out.println(valorXGeradoLvlThreeP3.get(i));
+		}
+		System.out.println("Ocurrencias de P3(posicao Y no nivel 4): ");
+		for (int i = 0; i < numberOfOcurrences; i++){
+			System.out.println(valorYGeradoLvlThreeP3.get(i));
+		}
 		
 	}
 	
