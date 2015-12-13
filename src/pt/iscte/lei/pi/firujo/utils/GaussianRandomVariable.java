@@ -58,7 +58,7 @@ public class GaussianRandomVariable {
 		if (quadrant == 3 || quadrant == 4) {
 			y = (height - 1) - y;
 		}
-
+		//System.out.println(y + " | mean - " + lvlMean + " | deviation - " + lvlDeviation);
 		return y;
 	}
 
@@ -89,7 +89,7 @@ public class GaussianRandomVariable {
 		if (quadrant == 1 || quadrant == 4) {
 			x = (width - 1) - x;
 		}
-
+		//System.out.println(x + " | mean - " + lvlMean + " | deviation - " + lvlDeviation);
 		return x;
 	}
 

@@ -96,17 +96,19 @@ public class Tester{
 			//valores para 1º quadrante com o objectivo de testar valores pretendidos
 			GaussianRandomVariable gVA = new GaussianRandomVariable();
 			gVA.setLvl(1);
-			gVA.setParameters(100, 100); // media de X e y = 25 | desvio padrao = 25
+			gVA.setParameters(200, 200); // media de X e y = 75 | desvio padrao = 25
 			valorXGeradoLvlOneP3.add(gVA.getX(1));
 			valorYGeradoLvlOneP3.add(gVA.getY(1));
+			///*
 			gVA.setLvl(2);
 			gVA.setParameters(100, 100); // media de X e y = 50 | desvio padrao = 25
 			valorXGeradoLvlTwoP3.add(gVA.getX(1));
 			valorYGeradoLvlTwoP3.add(gVA.getY(1));
 			gVA.setLvl(3);
-			gVA.setParameters(100, 100); // media de X e y = 75 | desvio padrao = 25
+			gVA.setParameters(100, 100); // media de X e y = 25 | desvio padrao = 25
 			valorXGeradoLvlThreeP3.add(gVA.getX(1));
 			valorYGeradoLvlThreeP3.add(gVA.getY(1));
+			//*/
 			
 			//Pontos que animal oferece ao ser morto (p4)
 			double random = new Random().nextDouble();
@@ -153,7 +155,7 @@ public class Tester{
 				valorGeradoP7.add(2); //nada gerado = 2
 			}
 		}
-		
+		///*
 		gerarResultadosP1();
 		System.out.println("");
 		gerarResultadosP2();
@@ -167,7 +169,7 @@ public class Tester{
 		gerarResultadosP6();
 		System.out.println("");
 		gerarResultadosP7();
-		
+		//*/
 	}
 	
 	public void gerarResultadosP1(){
