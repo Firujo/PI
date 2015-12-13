@@ -186,6 +186,29 @@ public class Tester{
 		System.out.println("Imagens grandes : " + numImgGrandes + " | Imagens medias : " + numImgMedias + " | Imagens pequenas : " + numImgPequenas);
 	}
 	
+//	public void gerarResultadosP3(){
+//		System.out.println("Ocurrencias de P3(quadrante): ");
+//		for (int i = 0; i < numberOfOcurrences; i++){
+//			System.out.println(valorGeradoQuadranteP3.get(i));
+//		}
+//		System.out.println("1º quadrante : " + numOcurrFirstQuadrant + " | 2º quadrante : " + numOcurrSecondQuadrant + " | 3º quadrante : " + numOcurrThirdQuadrant + " | 4º quadrante : " + numOcurrFourthQuadrant);
+//		System.out.println("");
+//		System.out.println("Ocurrencias de P3(posicao x|y no nivel 1): ");
+//		for (int i = 0; i < numberOfOcurrences; i++){
+//			System.out.println(valorXGeradoLvlOneP3.get(i) + " | " + valorYGeradoLvlOneP3.get(i));
+//		}
+//		System.out.println("");
+//		System.out.println("Ocurrencias de P3(posicao x|y no nivel 2): ");
+//		for (int i = 0; i < numberOfOcurrences; i++){
+//			System.out.println(valorXGeradoLvlTwoP3.get(i) + " | " + valorYGeradoLvlTwoP3.get(i));
+//		}
+//		System.out.println("");
+//		System.out.println("Ocurrencias de P3(posicao x|y no nivel 3): ");
+//		for (int i = 0; i < numberOfOcurrences; i++){
+//			System.out.println(valorXGeradoLvlThreeP3.get(i) + " | " + valorYGeradoLvlThreeP3.get(i));
+//		}
+//	}
+	
 	public void gerarResultadosP3(){
 		System.out.println("Ocurrencias de P3(quadrante): ");
 		for (int i = 0; i < numberOfOcurrences; i++){
@@ -193,20 +216,33 @@ public class Tester{
 		}
 		System.out.println("1º quadrante : " + numOcurrFirstQuadrant + " | 2º quadrante : " + numOcurrSecondQuadrant + " | 3º quadrante : " + numOcurrThirdQuadrant + " | 4º quadrante : " + numOcurrFourthQuadrant);
 		System.out.println("");
-		System.out.println("Ocurrencias de P3(posicao x|y no nivel 1): ");
+		System.out.println("Ocurrencias de P3(posicao X no nivel 1): ");
 		for (int i = 0; i < numberOfOcurrences; i++){
-			System.out.println(valorXGeradoLvlOneP3.get(i) + " | " + valorYGeradoLvlOneP3.get(i));
+			System.out.println(valorXGeradoLvlOneP3.get(i));
+		}
+		System.out.println("Ocurrencias de P3(posicao Y no nivel 1): ");
+		for (int i = 0; i < numberOfOcurrences; i++){
+			System.out.println(valorYGeradoLvlOneP3.get(i));
 		}
 		System.out.println("");
-		System.out.println("Ocurrencias de P3(posicao x|y no nivel 2): ");
+		System.out.println("Ocurrencias de P3(posicao X no nivel 2): ");
 		for (int i = 0; i < numberOfOcurrences; i++){
-			System.out.println(valorXGeradoLvlTwoP3.get(i) + " | " + valorYGeradoLvlTwoP3.get(i));
+			System.out.println(valorXGeradoLvlTwoP3.get(i));
+		}
+		System.out.println("Ocurrencias de P3(posicao Y no nivel 2): ");
+		for (int i = 0; i < numberOfOcurrences; i++){
+			System.out.println(valorYGeradoLvlTwoP3.get(i));
 		}
 		System.out.println("");
-		System.out.println("Ocurrencias de P3(posicao x|y no nivel 3): ");
+		System.out.println("Ocurrencias de P3(posicao X no nivel 3): ");
 		for (int i = 0; i < numberOfOcurrences; i++){
-			System.out.println(valorXGeradoLvlThreeP3.get(i) + " | " + valorYGeradoLvlThreeP3.get(i));
+			System.out.println(valorXGeradoLvlThreeP3.get(i));
 		}
+		System.out.println("Ocurrencias de P3(posicao Y no nivel 3): ");
+		for (int i = 0; i < numberOfOcurrences; i++){
+			System.out.println(valorYGeradoLvlThreeP3.get(i));
+		}
+		
 	}
 	
 	public void gerarResultadosP4(){
