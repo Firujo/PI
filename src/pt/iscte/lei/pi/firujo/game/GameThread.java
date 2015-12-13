@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.SliderUI;
 
 import pt.iscte.lei.pi.firujo.bughierarchy.Bomb;
@@ -18,6 +19,8 @@ import pt.iscte.lei.pi.firujo.bughierarchy.Roach;
 import pt.iscte.lei.pi.firujo.gui.HpBar;
 import pt.iscte.lei.pi.firujo.gui.gameGUI;
 import pt.iscte.lei.pi.firujo.main.Main;
+import pt.iscte.lei.pi.firujo.scores.HighScoreManager;
+import pt.iscte.lei.pi.firujo.scores.Score;
 import pt.iscte.lei.pi.firujo.utils.DiscreteRandomVariable;
 
 public class GameThread extends Observable implements Runnable {
@@ -62,13 +65,21 @@ public class GameThread extends Observable implements Runnable {
 					this.notifyObservers();
 				}
 			}else{
-				System.out.println("YOU DIED!!!!");
+//				System.out.println("YOU DIED!!!!");
 				cantKill=true;
+				Thread.currentThread().interrupt();
 				//acao que se deve fazer quando acaba - nova janela e pedir nome ?
 //				System.exit(0);
 			}
-				
 		}
+		Object nickname = JOptionPane.showInputDialog("Game Over!\nPlease enter your nickname:");
+		
+		if(nickname != null && nickname != ""){
+			HighScoreManager hsm = new HighScoreManager();
+			hsm.addScore(new Score(nickname.toString(), gameGUI.points));
+		}
+		
+		System.exit(0);
 	}
 
 	private void playBackgroundMusic() {

@@ -39,7 +39,7 @@ public class gameGUI extends JComponent {
 	public static Cronometro cronometro;
 //	private JPanel cronoPanel = new JPanel();
 	private JLabel cronoLabel;
-	private static int points = 0;
+	public static int points = 0;
 	public static JLabel JLpoints = new JLabel();
 	
 	
@@ -132,14 +132,31 @@ public class gameGUI extends JComponent {
 		centeredPanel.setLayout(new GridLayout(4, 1));
 		JLabel hsmTitleLabel = new JLabel(" Top High Scores");
 		ArrayList<Score> aux = highsm.getScores();
-		JLabel firstPlace = new JLabel("A - 3");
-		JLabel secondPlace = new JLabel("B - 2");
-		JLabel thirdPlace = new JLabel("C - 1");
-		/*
-		 * JLabel firstPlace = new JLabel(aux.get(0).toString()); JLabel
-		 * secondPlace=new JLabel(aux.get(1).toString()); JLabel thirdPlace=new
-		 * JLabel(aux.get(2).toString());
-		 */
+//		JLabel firstPlace = new JLabel("A - 3");
+//		JLabel secondPlace = new JLabel("B - 2");
+//		JLabel thirdPlace = new JLabel("C - 1");
+		
+
+		 JLabel firstPlace;
+		 JLabel secondPlace;
+		 JLabel thirdPlace;
+		
+		try{
+		 firstPlace = new JLabel(aux.get(0).toString()); 
+		}catch(IndexOutOfBoundsException e){
+			firstPlace = new JLabel("-");
+		}
+		try{
+		  secondPlace=new JLabel(aux.get(1).toString());
+		}catch(IndexOutOfBoundsException e){
+			secondPlace = new JLabel("-");
+		}
+		try{
+		  thirdPlace=new JLabel(aux.get(2).toString());
+		}catch(IndexOutOfBoundsException e){
+			 thirdPlace = new JLabel("-");
+		}
+		 
 
 		centeredPanel.add(hsmTitleLabel);
 		centeredPanel.add(firstPlace);
