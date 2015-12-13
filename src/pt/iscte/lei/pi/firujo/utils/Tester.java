@@ -97,17 +97,17 @@ public class Tester{
 			GaussianRandomVariable gVA = new GaussianRandomVariable();
 			gVA.setLvl(1);
 			gVA.setParameters(200, 200); // media de X e y = 75 | desvio padrao = 25
-			valorXGeradoLvlOneP3.add(gVA.getX(1));
-			valorYGeradoLvlOneP3.add(gVA.getY(1));
+			valorXGeradoLvlOneP3.add(gVA.getX(3));
+			valorYGeradoLvlOneP3.add(gVA.getY(3));
 			///*
 			gVA.setLvl(2);
-			gVA.setParameters(100, 100); // media de X e y = 50 | desvio padrao = 25
-			valorXGeradoLvlTwoP3.add(gVA.getX(1));
-			valorYGeradoLvlTwoP3.add(gVA.getY(1));
+			gVA.setParameters(200, 200); // media de X e y = 50 | desvio padrao = 25
+			valorXGeradoLvlTwoP3.add(gVA.getX(3));
+			valorYGeradoLvlTwoP3.add(gVA.getY(3));
 			gVA.setLvl(3);
-			gVA.setParameters(100, 100); // media de X e y = 25 | desvio padrao = 25
-			valorXGeradoLvlThreeP3.add(gVA.getX(1));
-			valorYGeradoLvlThreeP3.add(gVA.getY(1));
+			gVA.setParameters(200, 200); // media de X e y = 25 | desvio padrao = 25
+			valorXGeradoLvlThreeP3.add(gVA.getX(3));
+			valorYGeradoLvlThreeP3.add(gVA.getY(3));
 			//*/
 			
 			//Pontos que animal oferece ao ser morto (p4)
